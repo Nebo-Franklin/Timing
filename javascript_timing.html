@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript||Timing</title>
+</head>
+<body onload="startTime()">
+    <h3>Javascript|timing</h3>
+    <p>the timing object allows execution of codes at a specified time interval</p>
+    <p>we use two methods for  setTimeout (function, miliseconds): Executes a function after waiting a specified number of miliseseconds</p>
+
+    <p>setinterval (function, miliseconds): same as set timeout method but repeat the execution of the function continously</p>
+
+    <p id="tm">where we click then we wait for the set time before the execution occur</p>
+    <button onclick="setTimeout(myTm, 5000)">Reward</button>
+
+    <p id="show"></p>
+    <div id="image"></div>
+    <button onclick="setTimeout(myLove, 2000)">click me for love</button>
+    <!-- <img id="image" src="avatar_g2.jpg" alt="" style="height: 100px;width: 20%;display: none;"> -->
+
+    <script>
+      /*  var reveal = document.getElementById('show');
+        var picture = document.getElementById('image');
+        function myLove(){
+            if(setTimeout => 2000){
+                reveal.display.innertext = "i love you!!!"
+                picture.display.background = avatar_g2.jpg
+            }else{
+                alert("Timeout")
+            }
+        }*/
+        // let picture = document.getElementById('image')
+       function myLove(){
+            document.getElementById('show').innerHTML = "I love you!!!" 
+        }
+    </script>
+
+
+    <script>
+        // here is for starting setTimeout execution
+        function myTm(){
+            alert("congrats!! you won $3000")
+        }
+    </script>
+    <h3>stopping an execution</h3>
+    <p>clear.Timeout(timevariable)</p>
+    <button onclick="myExe = setTimeout(myExe, 3000)">Execute</button>
+    <button onclick="clearTimeout(myExe)">Stop execute</button>
+
+    <script>
+        // here is for stopping setTimeout execution
+        function myExe(){
+            alert('oops! you just ended the execution')
+
+        }
+    </script>
+    <h3>setinterval()</h3>
+    <p>this is written without the window prefix</p>
+    <pre>
+        current time
+    </pre>
+    <p id="st"></p>
+    
+    <script>
+        // here is for starting setInterval execution
+       /* let mySt = setInterval(mySty, 2000);
+
+        function mySty(){
+            var a = new Date()
+            document.getElementById("st").innerHTML = a.toLocaleString();
+           
+
+        }*/
+        setInterval(mySti, 5000);
+        function mySti(){
+            var a = new Date()
+            document.getElementById('st').innerHTML = a.toTimeString();
+        }
+    </script>
+    
+    <h3>stopping an execution for setinterval</h3>
+    <p>clear.Interval(timevariable)</p>
+    <p id="ST">example</p>
+    <button onclick="clearInterval(St)">stop execution</button>
+    <script>
+        // here is for stopping seInterval execution\
+        var ST = setInterval(myST, 5000);
+
+        function myST(){
+            var b = new Date();
+            document.getElementById('ST').innerHTML = b.toLocaleString();
+            // console.log(a.toLocaleString())
+        }
+    </script>
+    <p>multi-interval</p>
+    <button onclick="tmm()">Shutdown</button>
+    <pre>counts to Shutdown</pre>
+    <p id="cont"></p>
+    <h3 id="txt">Here</h3>
+    <!-- <p id="greetings"></p> -->
+    <div style="margin-bottom: 100px;"></div>
+
+    <script>
+        // displaying a multi function
+        function tmm(){
+            setTimeout(myT1, 2000);
+            setTimeout(myT2, 4000);
+            setTimeout(myT3, 6000);
+            setTimeout(myT4, 8000);
+        }
+
+        function myT1(){
+            document.getElementById('cont').innerHTML = "3..."
+        }
+        function myT2(){
+            document.getElementById('cont').innerHTML = "2..."
+        }
+        function myT3(){
+            document.getElementById('cont').innerHTML = "1..."
+        }
+        function myT4(){
+            document.getElementById('cont').innerHTML = "0..."
+        }
+
+        // Display time onloading this page txt
+       
+        function startTime(){
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // var tm =  date('H'); 
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            console.log(m)
+
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i){
+            if(i < 10){
+                i = "0" + i;
+            }
+            return i;
+        }
+       
+    </script>
+
+    
+
+   
+
+</body>
+</html>
